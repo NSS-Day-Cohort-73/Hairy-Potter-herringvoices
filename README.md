@@ -120,12 +120,17 @@ In the `main.js` module, invoke the `PotteryList` component function. Take its r
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Explain how you got the HTML, with the correct data, displayed in the browser?
-   > Your answer here
+   > First, I declared a variable in **Main** called `potteryHTML` and set its value equal to the element with the class of "potteryList", which was an article element I'd created previously. Then, I set its innerHTML equal to the `potteryList()` function. This function iterates through every object in the array created by the `usePottery()` function, which itself copies an array created by the `toSellOrNotToSell(pot)` function. `toSellOrNotToSell(pot)` accepts an argument named pot, checks to see if the pot.cracked is false, and if is false, it checks to see if `pot.weight` is greater than or equal to 6. If it is, it creates a key within the pot object called "price" and sets it equal to 40. If it weighs less than 6, the price key is still created, but its value is set to 20. In either instance, the object is returned and it is added to the `forSale` array, which is copied by `usePottery`, which is iterated through a for...of loop in `potteryList()`. For every object in the array, `potteryList()` generates HTML that describes the given object's attributes. The HTML that is generated is concatenated into `potHTML`, which is returned by the function and set as the value of `potteryHTML.innerHTML`. This adds the generated HTML into the element in `index.html` with the "potteryList" class and outputs it to the DOM.
+   
 2. In the **PotteryList** module, when you iterate your pottery, you need to show the evidence of what the **weight** property's value is for the 2nd piece of pottery. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > https://www.loom.com/share/87af638767ab457897bc1d9ef9673504?sid=e2e5e412-c7d2-4a6a-8308-23803a59ed0e
+
 3. The **PotteryWheel** module has a single function named `makePottery`. Why doesn't that module have all of the other code in it?
-   > Your answer here
+   > Modularizing code makes it easier for the code to be readable and editable by a team. If if my group was planning a project, had our sequence diagram all in order, knew what pointed to what and what naming conventions we were going to use, I could easily say, "Soandso, you work on creating the **PotteryWheel** module and I'll work on the **PotteryCatalog** module. This way the code can be divided up into more manageable chunks that can be worked on by individuals or by multiple teams on larger projects.
+
 4. The pottery shop has learned that there is a set of customers that are willing to buy cracked pottery at a discounted price of $2.50. That means that the cracked pottery should now be displayed in the catalog. Explain the changes that this new business strategy would cause to your algorithm.
-   > Your answer here
+   > The only change that would need to be made would be an else statement added to the initial if statement (rather than the nested if) in the `toSellOrNotToSell()` function. Since we've already handled all instances where `pot.cracked` is false, our else statement will automatically handle every instance where `pot.cracked` equals true. Within that else, we would create a `pot.price` key, set it equal to 2.50, push it to the `forSale` array, then return the `pot` object. This would update the `forSale` array appropriately, which would be copied and returned when the `usePottery()` function is invoked in the `potteryList()` function as the array iterated through in its for...of loop, which concatenates the string that's sent to the DOM.
+
+
 5. In the **Kiln** module, you have a `firePottery()` function. You need to demonstrate how to use the debugger to verify the values of the parameters for that function when your code runs. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > [Paste your video's public URL here](https://www.loom.com/share/4ea3e2663ca94d5cad2a628b2d51cd06)
